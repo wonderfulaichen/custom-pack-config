@@ -33,17 +33,8 @@ desktop.ini
 
 # ========== AI / IDE cache ==========
 .proxyai
+.codebuddy
 
-# ========== Forge MDK boilerplate（不是你的模组源码，可选排除）=========
-# 如果想保留这些文件，删除下面三行即可
-changelog.txt
+# ========== Forge MDK boilerplate ==========
+forge*changelog.txt
 CREDITS.txt
-README.txt
-
-# ========== 其他 ==========
-# *.log 日志文件
-*.log
-*.gz
-
-# 编译输出目录
-classes

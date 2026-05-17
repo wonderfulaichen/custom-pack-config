@@ -1,0 +1,7 @@
+# 数据包文本配置
+# 文本格式配置示例
+
+# welcome_message: 欢迎加入游戏！
+# toggle_feature: true
+
+# 其他配置将在运行时自动应用

@@ -121,7 +121,11 @@ repositories {
     // flatDir {
     //     dir 'libs'
     // }
-    maven { url "https://maven.shedaniel.me/" }
+
+    // Cloth Config repository
+    maven {
+        url = uri("https://maven.shedaniel.me/")
+    }
 }
 
 dependencies {
@@ -131,13 +135,15 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:11.1.136")
 
     // Example mod dependency with JEI - using fg.deobf() ensures the dependency is remapped to your development mappings
     // The JEI API is declared for compile time use, while the full JEI artifact is used at runtime
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+    
+    // Cloth Config dependency
+    implementation fg.deobf("me.shedaniel.cloth:cloth-config-forge:11.1.118")
 
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
@@ -168,7 +174,7 @@ tasks.named('processResources', ProcessResources).configure {
     }
 }
 
-// Example for how to get properties into the manifest for reading at runtime.
+// Ex ample for how to get properties into the manifest for reading at runtime.
 tasks.named('jar', Jar).configure {
     manifest {
         attributes([
