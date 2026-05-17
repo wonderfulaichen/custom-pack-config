@@ -1,0 +1,49 @@
+# ========== Eclipse ==========
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# ========== IntelliJ IDEA ==========
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# ========== VS Code ==========
+.vscode
+*.code-workspace
+
+# ========== Gradle ==========
+build
+.gradle
+*.class
+
+# ========== Minecraft runtime ==========
+run
+run-data
+
+# ========== OS metadata ==========
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ========== AI / IDE cache ==========
+.proxyai
+
+# ========== Forge MDK boilerplate（不是你的模组源码，可选排除）=========
+# 如果想保留这些文件，删除下面三行即可
+changelog.txt
+CREDITS.txt
+README.txt
+
+# ========== 其他 ==========
+# *.log 日志文件
+*.log
+*.gz
+
+# 编译输出目录
+classes
