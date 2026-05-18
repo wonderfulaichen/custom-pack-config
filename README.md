@@ -87,6 +87,21 @@
 | Minecraft Forge | 47.4+ | 必需 |
 | Cloth Config for Forge | 11.x | 可选（推荐） |
 
-## 许可
+## 许可 / License
 
 MIT
+
+---
+
+## 文档 / Documentation
+
+本模组提供中英双语使用指南：
+
+- [快速入门指南 (中文)](./快速入门指南.md)
+- [Quick Start Guide (English)](./QUICKSTART.md)
+- [完整使用指南 (中文)](./模组完整使用指南.md)
+- [Full Usage Guide (English)](./FULL_USAGE_GUIDE.md)
+
+---
+
+*Datapack Config Mod — 让数据包配置像改设置一样简单 / Making datapack config as easy as changing settings.*
