@@ -34,7 +34,7 @@
 
 1. 确保已安装 **Minecraft Forge 47.4+**（对应 1.20.1）
 2. 将模组 `.jar` 放入 `.minecraft/mods/`
-3. （可选）安装 **Cloth Config for Forge 11.x**（推荐，否则无法使用配置界面）
+3. 安装 **Cloth Config for Forge 11.x**（必需，配置界面依赖它）
 
 ## 使用
 
@@ -84,8 +84,8 @@
 
 | 依赖 | 版本 | 必要性 |
 |------|------|--------|
+| Cloth Config for Forge | 11.x | 必需 |
 | Minecraft Forge | 47.4+ | 必需 |
-| Cloth Config for Forge | 11.x | 可选（推荐） |
 
 ## 许可 / License
 

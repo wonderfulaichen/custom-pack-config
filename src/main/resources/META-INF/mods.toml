@@ -29,7 +29,7 @@ ${mod_description}
 
 [[dependencies.${mod_id}]]
     modId="cloth_config"
-    mandatory=false
+    mandatory=true
     versionRange="[11,)"
     ordering="NONE"
     side="CLIENT"

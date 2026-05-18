@@ -17,7 +17,7 @@ This quick start guide helps you get up and running with the Datapack Config Mod
 ### 1. Install the Mod
 
 1. Download and install Minecraft Forge 1.20.1
-2. Download Cloth Config for Forge and place it in the `mods` folder
+2. Download Cloth Config for Forge and place it in the `mods` folder (required — the config UI depends on it)
 3. Download this mod and place it in the `mods` folder
 4. Launch the game
 
