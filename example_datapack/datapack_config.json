@@ -8,10 +8,10 @@
       "zh_cn": "展示数据包配置模组所有功能的完整示例",
       "en_us": "Complete example demonstrating all features of the datapack config mod"
     },
-    "version": "1.0.0",
+    "version": "0.0.1",
     "author": "Example Author",
     "requires_mod": "datapack_config_mod",
-    "mod_version_min": "1.0.0"
+    "mod_version_min": "0.0.1"
   },
   "config": {
     "basic_enabled": {
