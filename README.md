@@ -97,10 +97,10 @@ MIT
 
 本模组提供中英双语使用指南：
 
-- [快速入门指南 (中文)](./快速入门指南.md)
-- [Quick Start Guide (English)](./QUICKSTART.md)
-- [完整使用指南 (中文)](./模组完整使用指南.md)
-- [Full Usage Guide (English)](./FULL_USAGE_GUIDE.md)
+- [快速入门指南 (中文)](https://github.com/wonderfulaichen/custom-pack-config/blob/main/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.md)
+- [Quick Start Guide (English)](https://github.com/wonderfulaichen/custom-pack-config/blob/main/QUICKSTART.md)
+- [完整使用指南 (中文)](https://github.com/wonderfulaichen/custom-pack-config/blob/main/%E6%A8%A1%E7%BB%84%E5%AE%8C%E6%95%B4%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)
+- [Full Usage Guide (English)](https://github.com/wonderfulaichen/custom-pack-config/blob/main/FULL_USAGE_GUIDE.md)
 
 ---
 
