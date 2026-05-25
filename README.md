@@ -89,18 +89,37 @@
 
 ## 许可 / License
 
-MIT
+本模组的代码采用 **MIT License** 发布，详情见 [LICENSE.txt](./LICENSE.txt)。
+
+EN: This mod's own code is released under the **MIT License**. See [LICENSE.txt](./LICENSE.txt).
+
+### 第三方依赖许可 / Third-Party Licenses
+
+本模组使用了以下第三方开源组件，各自的许可声明见 [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md)：
+
+EN: This mod uses the following third-party open-source components. Their license notices are in [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md):
+
+| 组件 (Component) | 许可 (License) |
+|-----------------|---------------|
+| Cloth Config (shedaniel) | LGPL-3.0 |
+| Minecraft Forge | LGPL-2.1 |
+| Parchment Mappings | CC0 1.0 |
+| Gradle | Apache 2.0 |
+
+### AI 辅助开发声明 / AI-Assisted Development
+
+本模组在开发中使用了 AI 辅助编程工具，详见 [AI-NOTICE.md](./AI-NOTICE.md)。
+
+EN: This mod was developed with AI-assisted coding tools. See [AI-NOTICE.md](./AI-NOTICE.md).
 
 ---
 
 ## 文档 / Documentation
 
-本模组提供中英双语使用指南：
+本模组提供中英双语使用指南（位于项目根目录）：
 
-- [快速入门指南 (中文)](https://github.com/wonderfulaichen/custom-pack-config/blob/main/%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.md)
-- [Quick Start Guide (English)](https://github.com/wonderfulaichen/custom-pack-config/blob/main/QUICKSTART.md)
-- [完整使用指南 (中文)](https://github.com/wonderfulaichen/custom-pack-config/blob/main/%E6%A8%A1%E7%BB%84%E5%AE%8C%E6%95%B4%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)
-- [Full Usage Guide (English)](https://github.com/wonderfulaichen/custom-pack-config/blob/main/FULL_USAGE_GUIDE.md)
+- [**DATAPACK_CONFIG_BILINGUAL_GUIDE.md**](./DATAPACK_CONFIG_BILINGUAL_GUIDE.md) — 完整中英双语使用指南 / Complete Bilingual Usage Guide
+- [QUICKSTART.md](./QUICKSTART.md) — 快速入门 / Quick Start
 
 ---
 
