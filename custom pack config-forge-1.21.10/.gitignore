@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ========== Eclipse ==========
 bin
 *.launch
@@ -39,33 +38,3 @@ desktop.ini
 # ========== Forge MDK boilerplate ==========
 forge*changelog.txt
 CREDITS.txt
-=======
-# Gradle
-.gradle/
-build/
-*/build/
-*/.gradle/
-
-# IDE
-.idea/
-*.iml
-*.ipr
-*.iws
-out/
-*.class
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Run directories
-run/
-run-data/
-
-# Local
-*.local
-*.bak
-
-# Minecraft
-*.minecraft
->>>>>>> 849410f (v0.0.2: EpicTerrain config support + array index fix)

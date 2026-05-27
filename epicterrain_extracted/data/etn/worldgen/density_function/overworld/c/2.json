@@ -1,0 +1,54 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:spline",
+    "spline": {
+      "coordinate": "etn:overworld/c/1",
+      "points": [
+        {
+          "location": -1.2,
+          "derivative": 0,
+          "value": -1.2
+        },
+        {
+          "location": -0.12,
+          "derivative": 0,
+          "value": {
+            "coordinate": "etn:overworld/c/1a",
+            "points": [
+              {
+                "location": -2,
+                "derivative": 0,
+                "value": -1
+              },
+              {
+                "location": 2,
+                "derivative": 0,
+                "value": 1
+              }
+            ]
+          }
+        },
+        {
+          "location": 0.05,
+          "derivative": 0,
+          "value": {
+            "coordinate": "etn:overworld/c/1",
+            "points": [
+              {
+                "location": -1.2,
+                "derivative": 0,
+                "value": -1.2
+              },
+              {
+                "location": 1.2,
+                "derivative": 0,
+                "value": 1.2
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:mul",
+  "argument1": -1,
+  "argument2": {
+    "type": "minecraft:add",
+    "argument1": -0.9,
+    "argument2": {
+      "type": "minecraft:abs",
+      "argument": {
+        "type": "minecraft:add",
+        "argument1": -0.9,
+        "argument2": "etn:overworld/r/2_1"
+      }
+    }
+  }
+}

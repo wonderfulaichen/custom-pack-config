@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:cache_once",
+  "argument": {
+    "type": "minecraft:add",
+    "argument1": {
+      "type": "minecraft:mul",
+      "argument1": 4,
+      "argument2": "minecraft:overworld/depth"
+    },
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": {
+        "type": "minecraft:range_choice",
+        "input": "etn:overworld/m/em1",
+        "min_inclusive": -1,
+        "max_exclusive": 0,
+        "when_in_range": 0,
+        "when_out_of_range": "minecraft:overworld/base_3d_noise"
+      },
+      "argument2": {
+        "type": "minecraft:add",
+        "argument1": {
+          "type": "minecraft:clamp",
+          "input": {
+            "type": "minecraft:mul",
+            "argument1": 0.4,
+            "argument2": "etn:overworld/e/c/2"
+          },
+          "min": 0,
+          "max": 0.8
+        },
+        "argument2": 0.15
+      }
+    }
+  }
+}

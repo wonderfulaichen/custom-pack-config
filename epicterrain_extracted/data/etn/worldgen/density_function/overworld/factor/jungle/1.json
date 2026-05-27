@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:mul",
+    "argument1": "etn:overworld/factor/jungle/j",
+    "argument2": {
+      "type": "minecraft:mul",
+      "argument1": "etn:overworld/factor/continents",
+      "argument2": {
+        "type": "minecraft:mul",
+        "argument1": "etn:overworld/factor/jungle/temperature",
+        "argument2": "etn:overworld/factor/jungle/vegetation"
+      }
+    }
+  }
+}

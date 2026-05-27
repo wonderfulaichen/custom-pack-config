@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:clamp",
+    "input": {
+      "type": "minecraft:add",
+      "argument1": "etn:overworld/vegetation",
+      "argument2": -0.35
+    },
+    "min": 0,
+    "max": 1
+  }
+}

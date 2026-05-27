@@ -1,0 +1,10 @@
+{
+  "debug": {
+    "enabled": false,
+    "level": 0
+  },
+  "terrain": {
+    "scale": 1.0
+  },
+  "batch_test": false
+}

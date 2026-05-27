@@ -1,0 +1,550 @@
+{
+  "metadata": {
+    "name": {
+      "zh_cn": "EpicTerrain 史诗地形",
+      "en_us": "EpicTerrain"
+    },
+    "description": {
+      "zh_cn": "为 EpicTerrain 数据包提供图形化配置界面，支持世界尺寸、河流设置、具体地形控制、地下地形、群系过度设置、群系尺寸、地物配置的实时调整",
+      "en_us": "Provides graphical configuration interface for EpicTerrain datapack"
+    },
+    "version": "0.0.2",
+    "author": "EpicTerrain",
+    "requires_mod": "datapack_config_mod",
+    "mod_version_min": "0.0.1"
+  },
+  "config": {
+    "world_size_xz": {
+      "type": "double_slider",
+      "default": "0.2",
+      "min": 0.01,
+      "max": 1.0,
+      "step": 0.01,
+      "category": "world_size",
+      "categoryDisplayNames": {
+        "zh_cn": {
+          "world_size": "世界尺寸"
+        },
+        "en_us": {
+          "world_size": "World Size"
+        }
+      },
+      "name": {
+        "zh_cn": "大陆面积",
+        "en_us": "Continent Area"
+      },
+      "description": {
+        "zh_cn": "控制大陆面积，越小越面积大（0.01~1）",
+        "en_us": "Controls continent size, smaller = larger area"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0.01~1，推荐 0.2",
+        "en_us": "Range 0.01~1, recommended 0.2"
+      },
+      "locations": [
+        {
+          "filePath": "data/etn/worldgen/density_function/overworld/c/1.json",
+          "key": "argument/spline/coordinate/xz_scale",
+          "description": "主比例尺"
+        },
+        {
+          "filePath": "data/etn/worldgen/density_function/overworld/c/1a.json",
+          "key": "argument/xz_scale",
+          "description": "辅助比例尺（需同步上方值）"
+        }
+      ]
+    },
+    "world_size_ocean_ratio": {
+      "type": "double_slider",
+      "default": "1.35",
+      "min": 0.1,
+      "max": 2.0,
+      "step": 0.01,
+      "category": "world_size",
+      "name": {
+        "zh_cn": "海陆比例",
+        "en_us": "Ocean-Land Ratio"
+      },
+      "description": {
+        "zh_cn": "控制海洋与大陆面积之比，越小大陆占比越大（0.1~2）",
+        "en_us": "Controls ocean vs land ratio, smaller = more land"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0.1~2，推荐 1.35",
+        "en_us": "Range 0.1~2, recommended 1.35"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/c/1.json",
+      "key": "argument/spline/points/1/location"
+    },
+    "river_width_big": {
+      "type": "double_slider",
+      "default": "0.008",
+      "min": 0.001,
+      "max": 0.1,
+      "step": 0.001,
+      "category": "river_settings",
+      "categoryDisplayNames": {
+        "zh_cn": {
+          "river_settings": "河流设置"
+        },
+        "en_us": {
+          "river_settings": "River Settings"
+        }
+      },
+      "name": {
+        "zh_cn": "大河流宽度",
+        "en_us": "Big River Width"
+      },
+      "description": {
+        "zh_cn": "河面宽度，越大越宽（0.001~0.1）",
+        "en_us": "River surface width, larger = wider"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0.001~0.1，推荐 0.008",
+        "en_us": "Range 0.001~0.1, recommended 0.008"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/r/1/1.json",
+      "key": "argument/spline/points/1/location"
+    },
+    "river_transition_big": {
+      "type": "double_slider",
+      "default": "0.048",
+      "min": 0.001,
+      "max": 0.1,
+      "step": 0.001,
+      "category": "river_settings",
+      "name": {
+        "zh_cn": "大河流平缓过度距离",
+        "en_us": "Big River Transition"
+      },
+      "description": {
+        "zh_cn": "河与大陆的平缓过度距离，越大距离越宽（0.001~0.1）",
+        "en_us": "River-land smooth transition distance, larger = wider"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0.001~0.1，推荐 0.048（0.008×6）",
+        "en_us": "Range 0.001~0.1, recommended 0.048"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/r/1/1.json",
+      "key": "argument/spline/points/2/location"
+    },
+    "river_width_small": {
+      "type": "double_slider",
+      "default": "0.008",
+      "min": 0.001,
+      "max": 0.1,
+      "step": 0.001,
+      "category": "river_settings",
+      "name": {
+        "zh_cn": "小河流宽度",
+        "en_us": "Small River Width"
+      },
+      "description": {
+        "zh_cn": "小河流宽度，设置与上方同理（0.001~0.1）",
+        "en_us": "Small river width, same as big river"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0.001~0.1，推荐 0.008",
+        "en_us": "Range 0.001~0.1, recommended 0.008"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/r/2/1.json",
+      "key": "argument/spline/points/1/location"
+    },
+    "river_transition_small": {
+      "type": "double_slider",
+      "default": "0.03",
+      "min": 0.001,
+      "max": 0.1,
+      "step": 0.001,
+      "category": "river_settings",
+      "name": {
+        "zh_cn": "小河流平缓过度距离",
+        "en_us": "Small River Transition"
+      },
+      "description": {
+        "zh_cn": "小河流与大陆的平缓过度距离，设置与上方同理（0.001~0.1）",
+        "en_us": "Small river transition, same as big river"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0.001~0.1，推荐 0.03",
+        "en_us": "Range 0.001~0.1, recommended 0.03"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/r/2/1.json",
+      "key": "argument/spline/points/2/location"
+    },
+    "terrain_shallow_ocean": {
+      "type": "double_slider",
+      "default": "-0.4",
+      "min": -1.0,
+      "max": -0.04,
+      "step": 0.01,
+      "category": "terrain_control",
+      "categoryDisplayNames": {
+        "zh_cn": {
+          "terrain_control": "具体地形控制"
+        },
+        "en_us": {
+          "terrain_control": "Terrain Control"
+        }
+      },
+      "name": {
+        "zh_cn": "浅海深度",
+        "en_us": "Shallow Ocean"
+      },
+      "description": {
+        "zh_cn": "浅海深度（-0.4~-0.04）",
+        "en_us": "Shallow ocean depth"
+      },
+      "tooltip": {
+        "zh_cn": "范围 -1~-0.04，推荐 -0.4",
+        "en_us": "Range -1~-0.04, recommended -0.4"
+      },
+      "filePath": "data/minecraft/worldgen/density_function/overworld/offset.json",
+      "key": "argument/argument/argument2/argument1/argument2/spline/points/1/value/points/2/value"
+    },
+    "terrain_deep_ocean": {
+      "type": "double_slider",
+      "default": "-1.0",
+      "min": -1.0,
+      "max": -0.35,
+      "step": 0.01,
+      "category": "terrain_control",
+      "name": {
+        "zh_cn": "深海深度",
+        "en_us": "Deep Ocean"
+      },
+      "description": {
+        "zh_cn": "深海深度（-1~-0.35）",
+        "en_us": "Deep ocean depth"
+      },
+      "tooltip": {
+        "zh_cn": "范围 -1~-0.35，推荐 -1.0",
+        "en_us": "Range -1~-0.35, recommended -1.0"
+      },
+      "filePath": "data/minecraft/worldgen/density_function/overworld/offset.json",
+      "key": "argument/argument/argument2/argument1/argument2/spline/points/1/value/points/0/value"
+    },
+    "terrain_trench": {
+      "type": "double_slider",
+      "default": "-0.6",
+      "min": -1.0,
+      "max": -0.04,
+      "step": 0.01,
+      "category": "terrain_control",
+      "name": {
+        "zh_cn": "海沟深度",
+        "en_us": "Trench Depth"
+      },
+      "description": {
+        "zh_cn": "海沟深度",
+        "en_us": "Ocean trench depth"
+      },
+      "tooltip": {
+        "zh_cn": "范围 -1~-0.04，推荐 -0.6",
+        "en_us": "Range -1~-0.04, recommended -0.6"
+      },
+      "filePath": "data/minecraft/worldgen/density_function/overworld/offset.json",
+      "key": "argument/argument/argument2/argument1/argument2/spline/points/1/value/points/1/value"
+    },
+    "terrain_coast_high": {
+      "type": "double_slider",
+      "default": "-0.358",
+      "min": -0.5,
+      "max": 1.0,
+      "step": 0.001,
+      "category": "terrain_control",
+      "name": {
+        "zh_cn": "石岸等高海岸高度",
+        "en_us": "Stone Coast Level"
+      },
+      "description": {
+        "zh_cn": "海岸高度上（-0.3）：石岸等高海岸高度",
+        "en_us": "Upper coast contour - stone coast level"
+      },
+      "tooltip": {
+        "zh_cn": "范围 -0.5~1，推荐 -0.358",
+        "en_us": "Range -0.5~1, recommended -0.358"
+      },
+      "filePath": "data/minecraft/worldgen/density_function/overworld/offset.json",
+      "key": "argument/argument/argument2/argument1/argument2/spline/points/4/value/points/0/value"
+    },
+    "terrain_coast_low": {
+      "type": "double_slider",
+      "default": "-0.335",
+      "min": -0.5,
+      "max": 1.0,
+      "step": 0.001,
+      "category": "terrain_control",
+      "name": {
+        "zh_cn": "沙滩等低海岸高度",
+        "en_us": "Beach Coast Level"
+      },
+      "description": {
+        "zh_cn": "海岸高度下：（-0.335）沙滩等低海岸高度",
+        "en_us": "Lower coast contour - beach level"
+      },
+      "tooltip": {
+        "zh_cn": "范围 -0.5~1，推荐 -0.335",
+        "en_us": "Range -0.5~1, recommended -0.335"
+      },
+      "filePath": "data/minecraft/worldgen/density_function/overworld/offset.json",
+      "key": "argument/argument/argument2/argument1/argument2/spline/points/4/value/points/1/value"
+    },
+    "terrain_mountain_height": {
+      "type": "double_slider",
+      "default": "1.7",
+      "min": -0.5,
+      "max": 5.0,
+      "step": 0.01,
+      "category": "terrain_control",
+      "name": {
+        "zh_cn": "山脉高度",
+        "en_us": "Mountain Height"
+      },
+      "description": {
+        "zh_cn": "山脉高度（-0.34~2）",
+        "en_us": "Mountain height range"
+      },
+      "tooltip": {
+        "zh_cn": "范围 -0.5~5，推荐 1.7",
+        "en_us": "Range -0.5~5, recommended 1.7"
+      },
+      "filePath": "data/minecraft/worldgen/density_function/overworld/offset.json",
+      "key": "argument/argument/argument2/argument1/argument2/spline/points/5/value/points/2/value/points/1/value"
+    },
+    "underground_top_y": {
+      "type": "int",
+      "default": "40",
+      "min": -64,
+      "max": 320,
+      "category": "underground",
+      "categoryDisplayNames": {
+        "zh_cn": {
+          "underground": "地下地形"
+        },
+        "en_us": {
+          "underground": "Underground Terrain"
+        }
+      },
+      "name": {
+        "zh_cn": "顶部高度",
+        "en_us": "Cave Top Y"
+      },
+      "description": {
+        "zh_cn": "洞穴顶部起始高度（from_y: 40）",
+        "en_us": "Cave top start height"
+      },
+      "tooltip": {
+        "zh_cn": "范围 -64~320，推荐 40",
+        "en_us": "Range -64~320, recommended 40"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/caves/2_top.json",
+      "key": "argument/argument1/from_y"
+    },
+    "underground_spike_len": {
+      "type": "int",
+      "default": "-100",
+      "min": -200,
+      "max": 320,
+      "category": "underground",
+      "name": {
+        "zh_cn": "尖刺向下生成长度",
+        "en_us": "Spike Down Length"
+      },
+      "description": {
+        "zh_cn": "尖刺向下生成长度（to_y: -100）",
+        "en_us": "Cave spike downward generation length"
+      },
+      "tooltip": {
+        "zh_cn": "范围 -200~320，推荐 -100",
+        "en_us": "Range -200~320, recommended -100"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/caves/2_top.json",
+      "key": "argument/argument1/to_y"
+    },
+    "underground_slope_low": {
+      "type": "int",
+      "default": "-92",
+      "min": -200,
+      "max": 320,
+      "category": "underground",
+      "name": {
+        "zh_cn": "地面斜坡最低处高度",
+        "en_us": "Slope Lowest Y"
+      },
+      "description": {
+        "zh_cn": "地面斜坡最低处高度（to_y: -96）",
+        "en_us": "Ground slope lowest height"
+      },
+      "tooltip": {
+        "zh_cn": "范围 -200~320，推荐 -92",
+        "en_us": "Range -200~320, recommended -92"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/caves/3_down.json",
+      "key": "argument/argument1/to_y"
+    },
+    "biome_continental_blend": {
+      "type": "double_slider",
+      "default": "0.03",
+      "min": 0.0,
+      "max": 0.2,
+      "step": 0.001,
+      "category": "biome_transition",
+      "categoryDisplayNames": {
+        "zh_cn": {
+          "biome_transition": "群系过度设置"
+        },
+        "en_us": {
+          "biome_transition": "Biome Transition"
+        }
+      },
+      "name": {
+        "zh_cn": "大陆性过度平滑",
+        "en_us": "Continental Blend"
+      },
+      "description": {
+        "zh_cn": "值越大，混合平滑越强。修改文件里值为0.03（0~0.2）",
+        "en_us": "Higher value = stronger blend smoothness, default 0.03"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0~0.2，推荐 0.03",
+        "en_us": "Range 0~0.2, recommended 0.03"
+      },
+      "filePath": "data/minecraft/worldgen/density_function/overworld/continents.json",
+      "key": "argument/argument2/when_in_range/argument2"
+    },
+    "biome_temp_scale": {
+      "type": "double_slider",
+      "default": "0.2",
+      "min": 0.01,
+      "max": 1.0,
+      "step": 0.01,
+      "category": "biome_size",
+      "categoryDisplayNames": {
+        "zh_cn": {
+          "biome_size": "群系尺寸"
+        },
+        "en_us": {
+          "biome_size": "Biome Size"
+        }
+      },
+      "name": {
+        "zh_cn": "温度图尺寸",
+        "en_us": "Temperature Size"
+      },
+      "description": {
+        "zh_cn": "控制群系各条件的尺寸大小，越小越尺寸（面积）大（0.01~1）",
+        "en_us": "Controls biome size, smaller = larger area"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0.01~1，推荐 0.2",
+        "en_us": "Range 0.01~1, recommended 0.2"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/temperature.json",
+      "key": "argument/xz_scale"
+    },
+    "biome_veg_scale": {
+      "type": "double_slider",
+      "default": "0.25",
+      "min": 0.01,
+      "max": 1.0,
+      "step": 0.01,
+      "category": "biome_size",
+      "name": {
+        "zh_cn": "湿度图尺寸",
+        "en_us": "Vegetation Size"
+      },
+      "description": {
+        "zh_cn": "控制群系各条件的尺寸大小，越小越尺寸（面积）大（0.01~1）",
+        "en_us": "Controls biome size, smaller = larger area"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0.01~1，推荐 0.25",
+        "en_us": "Range 0.01~1, recommended 0.25"
+      },
+      "filePath": "data/etn/worldgen/density_function/overworld/vegetation_1.json",
+      "key": "argument/xz_scale"
+    },
+    "feature_river_lake": {
+      "type": "int",
+      "default": "5",
+      "min": 0,
+      "max": 100,
+      "category": "feature_config",
+      "categoryDisplayNames": {
+        "zh_cn": {
+          "feature_config": "地物配置"
+        },
+        "en_us": {
+          "feature_config": "Feature Config"
+        }
+      },
+      "name": {
+        "zh_cn": "河岸小湿地概率",
+        "en_us": "River Lake Chance"
+      },
+      "description": {
+        "zh_cn": "河岸小湿地概率。个人建议不用动最小值。最大值一般不超过100，建议（0~30）",
+        "en_us": "River wetland lake chance. Keep min at 0. Max recommended 0-30"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0~100，推荐 5",
+        "en_us": "Range 0~100, recommended 5"
+      },
+      "filePath": "data/etn/worldgen/placed_feature/river/lake.json",
+      "key": "placement/0/count/value/max_inclusive"
+    },
+    "feature_swamp_lake": {
+      "type": "int",
+      "default": "10",
+      "min": 0,
+      "max": 100,
+      "category": "feature_config",
+      "name": {
+        "zh_cn": "沼泽小湖泊概率",
+        "en_us": "Swamp Lake Chance"
+      },
+      "description": {
+        "zh_cn": "沼泽小湖泊概率。个人建议不用动最小值。最大值一般不超过100，建议（0~30）",
+        "en_us": "Swamp lake chance. Keep min at 0. Max recommended 0-30"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0~100，推荐 10",
+        "en_us": "Range 0~100, recommended 10"
+      },
+      "filePath": "data/etn/worldgen/placed_feature/swamp/lake.json",
+      "key": "placement/0/count/value/max_inclusive"
+    },
+    "feature_stream": {
+      "type": "int",
+      "default": "15",
+      "min": 0,
+      "max": 100,
+      "category": "feature_config",
+      "name": {
+        "zh_cn": "溪流生成概率",
+        "en_us": "Stream Chance"
+      },
+      "description": {
+        "zh_cn": "溪流在每层的生成概率。个人建议不用动最小值。最大值一般不超过100，建议（0~30）",
+        "en_us": "Stream generation per layer. Keep min at 0. Max recommended 0-30"
+      },
+      "tooltip": {
+        "zh_cn": "范围 0~100，推荐 15",
+        "en_us": "Range 0~100, recommended 15"
+      },
+      "locations": [
+        {
+          "filePath": "data/etn/worldgen/placed_feature/river/water_surface.json",
+          "key": "placement/0/count",
+          "description": "溪流-水面"
+        },
+        {
+          "filePath": "data/etn/worldgen/placed_feature/river/frozen_water_surface.json",
+          "key": "placement/0/count",
+          "description": "溪流-冰面"
+        }
+      ]
+    }
+  }
+}

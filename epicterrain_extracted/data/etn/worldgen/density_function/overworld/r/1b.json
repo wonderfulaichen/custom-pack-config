@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:range_choice",
+  "input": "etn:overworld/r/1/4",
+  "min_inclusive": -1,
+  "max_exclusive": -0.275,
+  "when_in_range": 0,
+  "when_out_of_range": "etn:overworld/r/1a"
+}

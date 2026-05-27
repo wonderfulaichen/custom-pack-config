@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:min",
+  "argument1": {
+    "type": "minecraft:add",
+    "argument1": "minecraft:overworld/caves/noodle1_noise",
+    "argument2": -0.1
+  },
+  "argument2": "etn:overworld/caves/5"
+}

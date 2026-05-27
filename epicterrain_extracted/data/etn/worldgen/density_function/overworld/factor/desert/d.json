@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:mul",
+    "argument1": {
+      "type": "minecraft:clamp",
+      "input": {
+        "type": "minecraft:square",
+        "argument": {
+          "type": "minecraft:shifted_noise",
+          "noise": "etn:e/c",
+          "xz_scale": 0.2,
+          "y_scale": 0,
+          "shift_x": 0,
+          "shift_y": {
+            "type": "minecraft:cache_2d",
+            "argument": {
+              "type": "minecraft:mul",
+              "argument1": 280,
+              "argument2": "etn:overworld/e/b/1_1noise"
+            }
+          },
+          "shift_z": 0
+        }
+      },
+      "min": 0,
+      "max": 0.6
+    },
+    "argument2": 1.1
+  }
+}

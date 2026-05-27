@@ -1,0 +1,68 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:shifted_noise",
+    "noise": "minecraft:continentalness",
+    "shift_x": 0,
+    "shift_y": {
+      "type": "minecraft:mul",
+      "argument1": {
+        "type": "minecraft:shifted_noise",
+        "noise": "minecraft:ridge_1",
+        "xz_scale": 0.25,
+        "y_scale": 0,
+        "shift_x": 0,
+        "shift_y": {
+          "type": "minecraft:mul",
+          "argument1": {
+            "type": "minecraft:shifted_noise",
+            "noise": "etn:e/a",
+            "xz_scale": 0.25,
+            "y_scale": 0,
+            "shift_x": 0,
+            "shift_y": {
+              "type": "minecraft:mul",
+              "argument1": {
+                "type": "minecraft:shifted_noise",
+                "noise": "etn:e/b",
+                "xz_scale": 0.35,
+                "y_scale": 0,
+                "shift_x": 0,
+                "shift_y": {
+                  "type": "minecraft:mul",
+                  "argument1": {
+                    "type": "minecraft:shifted_noise",
+                    "noise": "etn:e/c",
+                    "xz_scale": 0.45,
+                    "y_scale": 0,
+                    "shift_x": {
+                      "type": "minecraft:mul",
+                      "argument1": "minecraft:shift_x",
+                      "argument2": 3
+                    },
+                    "shift_y": 0,
+                    "shift_z": {
+                      "type": "minecraft:mul",
+                      "argument1": "minecraft:shift_z",
+                      "argument2": 3
+                    }
+                  },
+                  "argument2": 80
+                },
+                "shift_z": 0
+              },
+              "argument2": 200
+            },
+            "shift_z": 0
+          },
+          "argument2": 300
+        },
+        "shift_z": 0
+      },
+      "argument2": 400
+    },
+    "shift_z": 0,
+    "xz_scale": 0.2,
+    "y_scale": 0
+  }
+}

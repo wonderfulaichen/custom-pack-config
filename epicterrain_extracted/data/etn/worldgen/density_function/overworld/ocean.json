@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:cache_2d",
+  "argument": {
+    "type": "minecraft:shifted_noise",
+    "noise": "minecraft:ridge_1",
+    "xz_scale": 0.25,
+    "y_scale": 0,
+    "shift_x": 0,
+    "shift_y": {
+      "type": "minecraft:mul",
+      "argument1": {
+        "type": "minecraft:noise",
+        "noise": "minecraft:continentalness",
+        "xz_scale": 1,
+        "y_scale": 0
+      },
+      "argument2": 1000
+    },
+    "shift_z": 0
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:range_choice",
+  "input": {
+    "type": "minecraft:y_clamped_gradient",
+    "from_y": -64,
+    "to_y": 512,
+    "from_value": 1.5,
+    "to_value": -1.5
+  },
+  "min_inclusive": 0,
+  "max_exclusive": 1,
+  "when_in_range": {
+    "type": "minecraft:range_choice",
+    "input": "minecraft:overworld/caves_river/4",
+    "min_inclusive": -1,
+    "max_exclusive": 0.5,
+    "when_in_range": -1,
+    "when_out_of_range": "minecraft:overworld/depth"
+  },
+  "when_out_of_range": "minecraft:overworld/depth"
+}
