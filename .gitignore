@@ -1,5 +1,19 @@
-<<<<<<< HEAD
-# ========== Eclipse ==========
+# ========== Gradle ==========
+.gradle/
+build/
+*/build/
+*/.gradle/
+*.class
+*.jar
+
+# ========== IDE ==========
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+.vscode/
+*.code-workspace
 bin
 *.launch
 .settings
@@ -7,65 +21,27 @@ bin
 .classpath
 .project
 
-# ========== IntelliJ IDEA ==========
-out
-*.ipr
-*.iws
-*.iml
-.idea
-
-# ========== VS Code ==========
-.vscode
-*.code-workspace
-
-# ========== Gradle ==========
-build
-.gradle
-*.class
+# ========== AI / IDE cache ==========
+.proxyai
+.codebuddy/
+.workbuddy/
 
 # ========== Minecraft runtime ==========
-run
-run-data
+run/
+run-data/
 
 # ========== OS metadata ==========
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# ========== AI / IDE cache ==========
-.proxyai
-.codebuddy
-
-# ========== Forge MDK boilerplate ==========
-forge*changelog.txt
-CREDITS.txt
-=======
-# Gradle
-.gradle/
-build/
-*/build/
-*/.gradle/
-
-# IDE
-.idea/
-*.iml
-*.ipr
-*.iws
-out/
-*.class
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Run directories
-run/
-run-data/
-
-# Local
+# ========== Local / temp ==========
 *.local
 *.bak
+*.zip
+convert_arrays.py
+epicterrain_extracted/
 
-# Minecraft
-*.minecraft
->>>>>>> 849410f (v0.0.2: EpicTerrain config support + array index fix)
+# ========== Forge MDK ==========
+forge*changelog.txt
+CREDITS.txt

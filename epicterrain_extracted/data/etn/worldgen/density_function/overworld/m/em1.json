@@ -1,8 +1,0 @@
-{
-  "type": "minecraft:cache_2d",
-  "argument": {
-    "type": "minecraft:min",
-    "argument1": "etn:overworld/r/1/4",
-    "argument2": "etn:overworld/r/2/3"
-  }
-}

@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:add",
-  "argument1": "etn:overworld/temperature",
-  "argument2": {
-    "type": "minecraft:mul",
-    "argument1": "etn:overworld/excessive_biomes",
-    "argument2": 0.01
-  }
-}
