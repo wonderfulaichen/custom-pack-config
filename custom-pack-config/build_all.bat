@@ -55,7 +55,7 @@ if %errorlevel% neq 0 (
 echo.
 
 rem ---- forge-1.21.4 ----
-echo [4/4] Building forge-1.21.4...
+echo [4/5] Building forge-1.21.4...
 cd /d "%PROJECT_DIR%forge-1.21.4"
 set "JAVA_HOME=%JAVA21%"
 set "JAVA25_HOME=%JAVA25%"
@@ -68,13 +68,27 @@ if %errorlevel% neq 0 (
 )
 echo.
 
+rem ---- forge-1.21.10 ----
+echo [5/5] Building forge-1.21.10...
+cd /d "%PROJECT_DIR%forge-1.21.10"
+set "JAVA_HOME=%JAVA21%"
+set "JAVA25_HOME=%JAVA25%"
+call gradlew clean build --no-daemon -x test 2>&1
+if %errorlevel% neq 0 (
+    echo [!] forge-1.21.10 BUILD FAILED
+    set BUILD_FAILED=1
+) else (
+    echo [OK] forge-1.21.10 BUILD SUCCESS
+)
+echo.
+
 rem ---- Summary ----
 echo ============================================
 if "%BUILD_FAILED%"=="1" (
     echo  Some builds FAILED. Check logs above.
     exit /b 1
 ) else (
-    echo  All 4 versions BUILT SUCCESSFULLY!
+    echo  All 5 versions BUILT SUCCESSFULLY!
 )
 echo ============================================
 echo.
