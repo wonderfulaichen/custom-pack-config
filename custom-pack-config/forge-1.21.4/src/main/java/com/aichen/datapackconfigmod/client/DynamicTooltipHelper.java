@@ -2,6 +2,7 @@ package com.aichen.datapackconfigmod.client;
 
 import com.aichen.datapackconfigmod.config.model.DatapackSettings;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.Style;
@@ -66,11 +67,10 @@ public class DynamicTooltipHelper {
     
     /**
      * 检查Ctrl键是否按下
-     * MC 1.21.10: Screen.hasControlDown() 已移除，改用 Minecraft.hasControlDown()
      */
     private static boolean isCtrlKeyPressed() {
         try {
-            return Minecraft.getInstance().hasControlDown();
+            return Screen.hasControlDown();
         } catch (Exception e) {
             return false;
         }

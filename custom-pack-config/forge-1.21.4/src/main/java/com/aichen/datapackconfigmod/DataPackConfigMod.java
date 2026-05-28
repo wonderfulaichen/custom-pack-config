@@ -30,8 +30,8 @@ public class DataPackConfigMod
     @SuppressWarnings("deprecation")
     public DataPackConfigMod(net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext context)
     {
-        // MC 1.21.10: IEventBus 已被移除，使用 getModBusGroup()
-        var modBus = context.getModBusGroup();
+        // 获取 Mod 事件总线
+        var modBus = context.getModEventBus();
 
         // 注册服务器事件处理器
         MinecraftForge.EVENT_BUS.register(ServerEvents.class);
