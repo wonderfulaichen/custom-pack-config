@@ -1,0 +1,14 @@
+// shared/build.gradle
+// 共享代码模块 - 纯 Java 库，不依赖 Forge
+
+plugins {
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+// 共享模块不需要额外依赖，仅作为源代码容器

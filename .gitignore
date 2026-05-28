@@ -1,5 +1,6 @@
 # ========== Gradle ==========
 .gradle/
+.gradle-tools/
 build/
 */build/
 */.gradle/

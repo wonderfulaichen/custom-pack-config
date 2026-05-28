@@ -1,0 +1,9 @@
+// 根项目 build.gradle
+// 多模块项目的根构建配置
+
+subprojects {
+    // 所有子项目共用的配置
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+    }
+}
