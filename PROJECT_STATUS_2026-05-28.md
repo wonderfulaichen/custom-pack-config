@@ -1,38 +1,23 @@
 # Datapack Config Mod - 项目状态总结
-## 2026-05-28 19:32
+## 2026-05-28 20:20
 
 ---
 
-## 1 架构现状
+## 1 架构现状（已清理）
 
-项目目前存在 **两套代码库**：
+项目现在是 **单一 MultiLoader 代码库**：
 
-### ✅ 旧项目（工作版本）
 ```
-📁 数据包配置mod/              ← 稳定可用的 1.20.1 版本
-├── src/main/java/             ← 23 个 Java 文件
-├── build.gradle               ← Forge 47.4.10 + Gradle 8.8
-├── settings.gradle
-├── gradlew / gradlew.bat
-├── README.md / QUICKSTART.md  ← 文档
-├── epicterrain_extracted/     ← EpicTerrain 数据包配置
-└── epicterrain_compatible_configured.zip
+📁 数据包配置mod/
+├── custom-pack-config/         ← MultiLoader 架构（唯一项目）
+│   ├── shared/                 ← 16 个跨版本共享 Java 文件
+│   ├── forge-1.20.1/           ← 7 个版本特有文件 ✅
+│   ├── forge-1.21.4/           ← 7 个版本特有文件 ✅
+│   ├── .gradle-tools/          ← Gradle 9.5.1 + JDK 25
+│   └── gradle.properties
+├── example_datapack/           ← 示例数据包
+└── epicterrain_extracted/      ← EpicTerrain 数据包配置
 ```
-- **状态**: 0.0.2 正式版本，Forge 1.20.1 单版本
-- **构建**: 可用 `./gradlew build` 编译
-- **文档**: 含中英双语完整使用指南
-
-### 🚧 新项目（MultiLoader 开发中）
-```
-📁 custom-pack-config/         ← MultiLoader 架构（未提交 git）
-├── shared/                    ← 16 个跨版本共享 Java 文件 ✅
-├── forge-1.20.1/              ← 7 个版本特有文件   ✅ 编译成功
-├── forge-1.21.4/              ← 7 个版本特有文件   ❌ 编译失败
-├── .gradle-tools/             ← Gradle 9.5.1 + JDK 25
-├── gradle.properties
-└── build.gradle
-```
-- **状态**: 架构骨架已完成，代码已拆分
 
 ---
 
@@ -67,20 +52,30 @@
 
 ---
 
-## 4 待完成清单
+## 4 Git 提交记录
 
-### 🟡 中优先级
-1. **[文档] 更新 README** — 根目录 README 仍只描述旧版 1.20.1
-2. **[清理] 旧项目 src/** — 与 custom-pack-config 并存，考虑归档或清理
-
-### 🟢 低优先级
-3. **[扩展] 覆盖 1.21.x 中间版本** — 当前只有 1.20.1 和 1.21.4
-4. **[测试] 运行单元测试** — 从未执行过测试
-5. **[CI] 配置 GitHub Actions 自动构建**
+| Commit | 说明 |
+|--------|------|
+| `b1a7a47` | feat: add custom-pack-config MultiLoader architecture |
+| `09a1b97` | fix: forge-1.21.4 compilation - aligned with official MDK template |
+| `b69ab78` | chore: cleanup legacy directories and root build files |
+| `1c15f52` | docs: update project status |
 
 ---
 
-## 5 技术栈记录
+## 5 待完成清单
+
+### 🟡 中优先级
+1. **[文档] 更新 README** — 根目录 README 仍只描述旧版 1.20.1
+
+### 🟢 低优先级
+2. **[扩展] 覆盖 1.21.x 中间版本** — 当前只有 1.20.1 和 1.21.4
+3. **[测试] 运行单元测试** — 从未执行过测试
+4. **[CI] 配置 GitHub Actions 自动构建**
+
+---
+
+## 6 技术栈记录
 
 ### forge-1.20.1
 | 项目 | 值 |
@@ -117,4 +112,4 @@ JAVA25_HOME=".../.gradle-tools/jdk-25.0.4+2" \
 
 ---
 
-*生成于 2026-05-28 19:32，为开启新对话准备。完整内容也写入 `.workbuddy/memory/2026-05-28.md` 及 `custom-pack-config/.workbuddy/memory/MEMORY.md`*
+*更新于 2026-05-28 20:20，清理旧目录后*
