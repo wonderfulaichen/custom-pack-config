@@ -1,7 +1,11 @@
 # Gradle
 .gradle/
+.gradle-tools/
 build/
 !gradle/wrapper/gradle-wrapper.jar
+
+# Temp files
+*.txt
 
 # IDE
 .idea/
