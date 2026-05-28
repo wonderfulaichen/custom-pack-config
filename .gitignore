@@ -40,7 +40,7 @@ desktop.ini
 *.local
 *.bak
 *.zip
-convert_arrays.py
+scripts/convert_arrays.py
 epicterrain_extracted/
 
 # ========== Forge MDK ==========
