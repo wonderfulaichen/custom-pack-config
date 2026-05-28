@@ -41,23 +41,17 @@
 | 子项目 | 结果 | 产物 |
 |--------|------|------|
 | forge-1.20.1 (Gradle 8.8 + JDK 17) | ✅ 成功 | `datapack_config_mod-0.0.2-1.20.1.jar` |
-| forge-1.21.4 (Gradle 9.5.1 + JDK 21) | ❌ 失败 | `build/classes/` 为空，无 jar 输出 |
+| forge-1.21.4 (Gradle 9.5.1 + JDK 21) | ✅ 成功 | `datapack_config_mod-0.0.2-1.21.4.jar` (223KB) |
 
-### ❌ forge-1.21.4 编译阻塞（核心问题）
+### ✅ forge-1.21.4 编译修复（2026-05-28 完成）
 
-**根源**: ForgeGradle 7.x (7.0.3) 在 Gradle 9.5.1 上 `minecraft {}` 块的类路径注入机制失效。
+**根本原因**: ForgeGradle 7.x 与 6.x 构建模式完全不同，需使用官方 MDK 模板配置。
 
-**已尝试方案**:
-| # | 方案 | 结果 |
-|---|------|------|
-| 1 | ForgeGradle 默认 minecraft { runs {} } | ❌ compileJava 找不到 net.minecraft.* |
-| 2 | 降级 Gradle 8.x | ❌ ForgeGradle 7.x 强制要求 Gradle 9.3+ |
-| 3 | 改用 `minecraft.dependency()` 注入 | ❌ 类路径仍失败 |
-| 4 | Mavenizer 本地 repo + `implementation` 直接依赖 | ❌ 依赖解析通过但编译时类路径仍无效 |
-
-**推荐解决方向**: 
-- 在用户环境中直接运行 `gradlew`（绕过沙箱限制）
-- 或用 ForgeGradle 6.x + Gradle 8.x 替代 7.x + 9.x 方案
+**关键修复**:
+- 依赖: `implementation minecraft.dependency(...)` 而非直接 `implementation`
+- 仓库: `minecraft.mavenizer(it)` + `fg.forgeMaven` + `fg.minecraftLibsMaven`
+- JDK 25: Mavenizer 内部工具链需要，通过 JAVA25_HOME 提供
+- API 变更: SubscribeEvent 包路径、getModEventBus()、Screen.hasControlDown()
 
 ---
 
@@ -75,18 +69,14 @@
 
 ## 4 待完成清单
 
-### 🔴 高优先级
-1. **[编译] 修复 forge-1.21.4 编译** — 核心阻塞，卡住 MultiLoader 交付
-2. **[Git] 提交 custom-pack-config/** — 新项目尚未 init git 和提交
-
 ### 🟡 中优先级
-3. **[文档] 更新 README** — 根目录 README 仍只描述旧版 1.20.1
-4. **[清理] 旧项目 src/** — 与 custom-pack-config 并存，考虑归档或清理
+1. **[文档] 更新 README** — 根目录 README 仍只描述旧版 1.20.1
+2. **[清理] 旧项目 src/** — 与 custom-pack-config 并存，考虑归档或清理
 
 ### 🟢 低优先级
-5. **[扩展] 覆盖 1.21.x 中间版本** — 当前只有 1.20.1 和 1.21.4
-6. **[测试] 运行单元测试** — 从未执行过测试
-7. **[CI] 配置 GitHub Actions 自动构建**
+3. **[扩展] 覆盖 1.21.x 中间版本** — 当前只有 1.20.1 和 1.21.4
+4. **[测试] 运行单元测试** — 从未执行过测试
+5. **[CI] 配置 GitHub Actions 自动构建**
 
 ---
 
@@ -111,7 +101,19 @@
 | Forge | 54.1.14 |
 | Mappings | Official 1.21.4 |
 | Cloth Config | 17.0.144 |
-| JDK 25 路径 | `.gradle-tools/jdk-25.0.4+2`（为 Gradle 9.5.1 toolchain 准备） |
+| JDK 25 | `.gradle-tools/jdk-25.0.4+2`（Mavenizer 工具链） |
+
+### 构建命令
+```bash
+# forge-1.20.1
+cd custom-pack-config/forge-1.20.1 && ./gradlew build
+
+# forge-1.21.4
+cd custom-pack-config/forge-1.21.4
+JAVA_HOME="D:/Program Files/Java/zulu21.32.17-ca-jdk21.0.2-win_x64" \
+JAVA25_HOME=".../.gradle-tools/jdk-25.0.4+2" \
+../.gradle-tools/gradle-9.5.1/bin/gradle build --no-daemon
+```
 
 ---
 
